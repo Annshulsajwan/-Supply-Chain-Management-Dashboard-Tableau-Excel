@@ -1,0 +1,18 @@
+// Inventory
+[Days of Inventory Remaining] = [Stock levels] / AVG([Daily Sales])
+
+// Fulfillment
+[On-Time Delivery Rate] = SUM(IF [On-Time Delivery] = 'Yes' THEN 1 ELSE 0 END) / COUNT([SKU])
+[Fulfillment Rate] = SUM(IF [Fulfillment Status] = 'Fulfilled' THEN 1 ELSE 0 END) / COUNT([SKU])
+
+// Supplier
+[Defect Rate] = SUM([Defective_Unit]) / SUM([Production volumes])
+[Total Lead Time] = [Lead time] + [Manufacturing lead time]
+
+// Transportation
+[Average Transit Time] = AVG([Shipping times])
+[Delay Flag] = IF [Transit Delay Flag] = 'Delayed' THEN 1 ELSE 0 END
+
+// Cost
+[Total Cost] = [Shipping costs] + [Manufacturing costs]
+[Cost % of Revenue] = [Total Cost per SKU] / [Revenue]
